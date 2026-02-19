@@ -60,6 +60,7 @@ FormacionEmpresa2026/
 │       └── modelo/
 │           ├── entidades/        ← Clases JPA
 │           ├── dao/              ← Acceso a datos
+|           |    └── exceptions/
 │           └── util/             ← Email, CSV, utilidades
 └── web/
     ├── directiva/                ← JSPs de administración
@@ -148,8 +149,8 @@ Los JARs deben añadirse manualmente al proyecto (no incluidos en el repositorio
 - [x] Arquitectura y estructura del proyecto
 - [x] Base de datos y entidades JPA
 - [ ] Autenticación y gestión de sesiones
-- [ ] CRUD Profesores y Cursos
-- [ ] CRUD Alumnos + importación CSV
+- [x] CRUD Profesores y Cursos
+- [x] CRUD Alumnos + importación CSV
 - [ ] Gestión de Prácticas + email
 - [ ] Servicio REST
 - [ ] Estadísticas y gráficas
