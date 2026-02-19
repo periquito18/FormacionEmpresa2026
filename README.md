@@ -140,6 +140,7 @@ Los JARs deben añadirse manualmente al proyecto (no incluidos en el repositorio
 - `jakarta.servlet.jsp.jstl-3.0.1.jar`
 - `jakarta.servlet.jsp.jstl-api-3.0.0.jar`
 - `jakarta.mail-2.0.1.jar`
+- `jakarta.validation-api.jar`
 - Jersey (JAX-RS) — pendiente de añadir
 
 ---
