@@ -100,4 +100,3 @@ INSERT INTO practicas (alumno_id, empresa_id, fecha_inicio, fecha_fin, comentari
 (4, 2, '2026-03-01', '2026-06-30', 'Pendiente de confirmar proyecto asignado.'),
 (7, 3, '2026-03-01', '2026-06-30', NULL),
 (8, 4, '2026-03-01', '2026-06-30', 'Muy buena actitud y proactividad.');
-

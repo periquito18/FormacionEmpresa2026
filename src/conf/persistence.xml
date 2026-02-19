@@ -9,7 +9,12 @@
         
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
         
-        <!-- Entidades (las iremos añadiendo aquí conforme las creemos) -->
+        <!-- Entidades -->
+        <class>modelo.entidades.Profesor</class>
+        <class>modelo.entidades.Curso</class>
+        <class>modelo.entidades.Alumno</class>
+        <class>modelo.entidades.Empresa</class>
+        <class>modelo.entidades.Practica</class>
         
         <properties>
             <!-- Conexión a la base de datos -->
