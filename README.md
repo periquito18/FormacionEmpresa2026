@@ -163,3 +163,4 @@ Los JARs deben añadirse manualmente al proyecto (no incluidos en el repositorio
 
 Proyecto académico — Ciclo Formativo DAW  
 Asignatura: Desarrollo Web en Entorno Servidor
+Autor: Sergio Mate Palacios
