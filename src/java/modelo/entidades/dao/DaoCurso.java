@@ -39,6 +39,7 @@ public class DaoCurso {
             em.persist(curso);
             em.getTransaction().commit();
         } catch (Exception e) {
+            e.printStackTrace(); // Muestra el error completo en la consola
             em.getTransaction().rollback();
             throw e;
         } finally {
@@ -80,6 +81,7 @@ public class DaoCurso {
             query.setParameter("nombre", nombre);
             return query.getSingleResult();
         } catch (Exception e) {
+            e.printStackTrace(); // Muestra el error completo en la consola
             return null;
         } finally {
             em.close();
@@ -124,6 +126,7 @@ public class DaoCurso {
             em.merge(curso);
             em.getTransaction().commit();
         } catch (Exception e) {
+            e.printStackTrace(); // Muestra el error completo en la consola
             em.getTransaction().rollback();
             throw e;
         } finally {
@@ -154,9 +157,11 @@ public class DaoCurso {
             em.remove(curso);
             em.getTransaction().commit();
         } catch (NonExistentEntityException e) {
+            e.printStackTrace(); // Muestra el error completo en la consola
             em.getTransaction().rollback();
             throw e;
         } catch (Exception e) {
+            e.printStackTrace(); // Muestra el error completo en la consola
             em.getTransaction().rollback();
             throw e;
         } finally {

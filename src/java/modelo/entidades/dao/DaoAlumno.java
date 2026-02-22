@@ -41,6 +41,7 @@ public class DaoAlumno {
             em.persist(alumno);
             em.getTransaction().commit();
         } catch (Exception e) {
+            e.printStackTrace(); // Muestra el error completo en la consola
             em.getTransaction().rollback();
             throw e;
         } finally {
@@ -81,6 +82,7 @@ public class DaoAlumno {
             query.setParameter("email", email);
             return query.getSingleResult();
         } catch (Exception e) {
+            e.printStackTrace(); // Muestra el error completo en la consola
             return null;
         } finally {
             em.close();
@@ -146,6 +148,7 @@ public class DaoAlumno {
             em.merge(alumno);
             em.getTransaction().commit();
         } catch (Exception e) {
+            e.printStackTrace(); // Muestra el error completo en la consola
             em.getTransaction().rollback();
             throw e;
         } finally {
@@ -175,9 +178,11 @@ public class DaoAlumno {
             em.remove(alumno);
             em.getTransaction().commit();
         } catch (NonExistentEntityException e) {
+            e.printStackTrace(); // Muestra el error completo en la consola
             em.getTransaction().rollback();
             throw e;
         } catch (Exception e) {
+            e.printStackTrace(); // Muestra el error completo en la consola
             em.getTransaction().rollback();
             throw e;
         } finally {
@@ -187,7 +192,7 @@ public class DaoAlumno {
 
     // ---- UTILIDADES ----
     /**
-     * Cuenta el número total de alumnos en la BD.
+     * Cuenta el número total de alumnos en la BD
      *
      * @return El número de alumnos
      */

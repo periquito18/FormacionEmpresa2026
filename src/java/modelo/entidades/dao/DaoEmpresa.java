@@ -30,6 +30,7 @@ public class DaoEmpresa {
             em.persist(empresa);
             em.getTransaction().commit();
         } catch (Exception e) {
+            e.printStackTrace(); // Muestra el error completo en la consola
             em.getTransaction().rollback();
             throw e;
         } finally {
@@ -90,6 +91,7 @@ public class DaoEmpresa {
             em.merge(empresa);
             em.getTransaction().commit();
         } catch (Exception e) {
+            e.printStackTrace(); // Muestra el error completo en la consola
             em.getTransaction().rollback();
             throw e;
         } finally {
@@ -119,9 +121,11 @@ public class DaoEmpresa {
             em.remove(empresa);
             em.getTransaction().commit();
         } catch (NonExistentEntityException e) {
+            e.printStackTrace(); // Muestra el error completo en la consola
             em.getTransaction().rollback();
             throw e;
         } catch (Exception e) {
+            e.printStackTrace(); // Muestra el error completo en la consola
             em.getTransaction().rollback();
             throw e;
         } finally {

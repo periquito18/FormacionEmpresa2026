@@ -31,14 +31,16 @@ public class ModeloLogin {
     }
 
     /**
-     * Verifica las credenciales de un profesor.
-     * Hashea la contraseña recibida y la compara con la almacenada en BD.
+     * Verifica las credenciales de un profesor. Hashea la contraseña recibida y
+     * la compara con la almacenada en BD.
      *
-     * @param email    El email introducido en el formulario de login
+     * @param email El email introducido en el formulario de login
      * @param password La contraseña en texto plano introducida en el formulario
-     * @return El Profesor autenticado, o null si las credenciales son incorrectas
+     * @return El Profesor autenticado, o null si las credenciales son
+     * incorrectas
      */
     public Profesor verificarLogin(String email, String password) {
+
         // Hasheamos la contraseña antes de consultar la BD
         // porque en BD están almacenadas hasheadas con MD5
         String passwordHash = hashMD5(password);
@@ -48,9 +50,9 @@ public class ModeloLogin {
     }
 
     /**
-     * Genera el hash MD5 de un texto.
-     * Se usa para hashear contraseñas antes de compararlas o guardarlas.
-     * Es estático para poder usarse también desde otros sitios (ej: crear profesor).
+     * Genera el hash MD5 de un texto. Se usa para hashear contraseñas antes de
+     * compararlas o guardarlas. Es estático para poder usarse también desde
+     * otros sitios (ej: crear profesor).
      *
      * @param texto El texto a hashear
      * @return El hash MD5 en formato hexadecimal
@@ -71,6 +73,7 @@ public class ModeloLogin {
             return sb.toString();
 
         } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace(); // Muestra el error completo en la consola
             // MD5 siempre está disponible en Java, esto nunca debería ocurrir
             throw new RuntimeException("Error al hashear la contraseña", e);
         }

@@ -45,6 +45,7 @@ public class DaoPractica {
             em.persist(practica);
             em.getTransaction().commit();
         } catch (Exception e) {
+            e.printStackTrace(); // Muestra el error completo en la consola
             em.getTransaction().rollback();
             throw e;
         } finally {
@@ -86,6 +87,7 @@ public class DaoPractica {
             query.setParameter("alumno", alumno);
             return query.getSingleResult();
         } catch (Exception e) {
+            e.printStackTrace(); // Muestra el error completo en la consola
             return null; // El alumno no tiene práctica asignada
         } finally {
             em.close();
@@ -198,6 +200,7 @@ public class DaoPractica {
             em.merge(practica);
             em.getTransaction().commit();
         } catch (Exception e) {
+            e.printStackTrace(); // Muestra el error completo en la consola
             em.getTransaction().rollback();
             throw e;
         } finally {
@@ -226,9 +229,11 @@ public class DaoPractica {
             em.remove(practica);
             em.getTransaction().commit();
         } catch (NonExistentEntityException e) {
+            e.printStackTrace(); // Muestra el error completo en la consola
             em.getTransaction().rollback();
             throw e;
         } catch (Exception e) {
+            e.printStackTrace(); // Muestra el error completo en la consola
             em.getTransaction().rollback();
             throw e;
         } finally {

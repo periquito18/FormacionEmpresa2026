@@ -23,10 +23,23 @@ public class JPAUtil {
      * El EMF es estático: existe uno solo para toda la aplicación.
      * Se crea en el momento en que la clase se carga en memoria (lazy init).
      * Abre el pool de conexiones y lee la configuración de persistence.xml.
+     * private static EntityManagerFactory emf = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
      */
-    private static EntityManagerFactory emf =
-            Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
+    
+    // El EMF empieza como null y se crea solo cuando se necesita
+    private static EntityManagerFactory emf = null;
 
+    /**
+     * Devuelve el EntityManagerFactory, creándolo si no existe todavía.
+     * Sincronizado para evitar problemas con múltiples hilos simultáneos.
+     */
+    private static synchronized EntityManagerFactory getEmf() {
+        if (emf == null || !emf.isOpen()) {
+            emf = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
+        }
+        return emf;
+    }
+    
     /**
      * Devuelve un EntityManager nuevo.
      * Cada operación con la BD debe crear el suyo, usarlo y cerrarlo.
@@ -35,7 +48,7 @@ public class JPAUtil {
      * @return Un EntityManager listo para usar
      */
     public static EntityManager getEntityManager() {
-        return emf.createEntityManager();
+        return getEmf().createEntityManager();
     }
 
     /**
