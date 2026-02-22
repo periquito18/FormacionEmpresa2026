@@ -51,7 +51,7 @@
                         <i class="bi bi-people fs-1 opacity-50"></i>
                     </div>
                     <div class="card-footer">
-                        <a href="${pageContext.request.contextPath}/Comun/GestionAlumnos" 
+                        <a href="${pageContext.request.contextPath}/comun/GestionAlumnos" 
                            class="text-white text-decoration-none">
                             Ver alumnos <i class="bi bi-arrow-right"></i>
                         </a>
@@ -69,7 +69,7 @@
                         <i class="bi bi-briefcase fs-1 opacity-50"></i>
                     </div>
                     <div class="card-footer">
-                        <a href="${pageContext.request.contextPath}/Comun/GestionEmpresas" 
+                        <a href="${pageContext.request.contextPath}/comun/GestionEmpresas" 
                            class="text-white text-decoration-none">
                             Ver empresas <i class="bi bi-arrow-right"></i>
                         </a>
@@ -87,7 +87,7 @@
                         <i class="bi bi-journal-check fs-1 opacity-50"></i>
                     </div>
                     <div class="card-footer">
-                        <a href="${pageContext.request.contextPath}/Comun/GestionPracticas" 
+                        <a href="${pageContext.request.contextPath}/comun/GestionPracticas" 
                            class="text-white text-decoration-none">
                             Ver prácticas <i class="bi bi-arrow-right"></i>
                         </a>

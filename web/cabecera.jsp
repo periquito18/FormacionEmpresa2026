@@ -29,17 +29,17 @@
 
                 <!-- Menú común para todos los profesores -->
                 <li class="nav-item">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/Comun/GestionAlumnos">
+                    <a class="nav-link" href="${pageContext.request.contextPath}/comun/GestionAlumnos">
                         <i class="bi bi-people"></i> Alumnos
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/Comun/GestionEmpresas">
+                    <a class="nav-link" href="${pageContext.request.contextPath}/comun/GestionEmpresas">
                         <i class="bi bi-briefcase"></i> Empresas
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/Comun/GestionPracticas">
+                    <a class="nav-link" href="${pageContext.request.contextPath}/comun/GestionPracticas">
                         <i class="bi bi-journal-check"></i> Prácticas
                     </a>
                 </li>
@@ -54,20 +54,20 @@
                         <ul class="dropdown-menu">
                             <li>
                                 <a class="dropdown-item" 
-                                   href="${pageContext.request.contextPath}/Directiva/GestionProfesores">
+                                   href="${pageContext.request.contextPath}/directiva/GestionProfesores">
                                     <i class="bi bi-person-gear"></i> Profesores
                                 </a>
                             </li>
                             <li>
                                 <a class="dropdown-item" 
-                                   href="${pageContext.request.contextPath}/Directiva/GestionCursos">
+                                   href="${pageContext.request.contextPath}/directiva/GestionCursos">
                                     <i class="bi bi-book"></i> Cursos
                                 </a>
                             </li>
                             <li><hr class="dropdown-divider"></li>
                             <li>
                                 <a class="dropdown-item" 
-                                   href="${pageContext.request.contextPath}/Directiva/Estadisticas">
+                                   href="${pageContext.request.contextPath}/directiva/Estadisticas">
                                     <i class="bi bi-bar-chart"></i> Estadísticas
                                 </a>
                             </li>
