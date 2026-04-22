@@ -3,11 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/SGame/OneDrive/Escritorio/DAW/2º%20DAW/Desarrollo_Web_Entorno_Servidor/Proyecto_2_Evaluacion/FormacionEmpresa2026/src/java/modelo/entidades/dao/DaoCurso.java</file>
-            <file>file:/C:/Users/SGame/OneDrive/Escritorio/DAW/2º%20DAW/Desarrollo_Web_Entorno_Servidor/Proyecto_2_Evaluacion/FormacionEmpresa2026/web/directiva/verCursos.jsp</file>
-            <file>file:/C:/Users/SGame/OneDrive/Escritorio/DAW/2º%20DAW/Desarrollo_Web_Entorno_Servidor/Proyecto_2_Evaluacion/FormacionEmpresa2026/src/java/controladores/directiva/GestionCursos.java</file>
-            <file>file:/C:/Users/SGame/OneDrive/Escritorio/DAW/2º%20DAW/Desarrollo_Web_Entorno_Servidor/Proyecto_2_Evaluacion/FormacionEmpresa2026/crear_bd.sql</file>
-            <file>file:/C:/Users/SGame/OneDrive/Escritorio/DAW/2º%20DAW/Desarrollo_Web_Entorno_Servidor/Proyecto_2_Evaluacion/FormacionEmpresa2026/web/index.html</file>
+            <file>file:/C:/Users/SGame/OneDrive/Escritorio/DAW/2º%20DAW/Desarrollo_Web_Entorno_Servidor/Proyecto_2_Evaluacion/FormacionEmpresa2026/src/java/controladores/comun/GestionAlumnos.java</file>
+            <file>file:/C:/Users/SGame/OneDrive/Escritorio/DAW/2º%20DAW/Desarrollo_Web_Entorno_Servidor/Proyecto_2_Evaluacion/FormacionEmpresa2026/web/comun/verEmpresas.jsp</file>
+            <file>file:/C:/Users/SGame/OneDrive/Escritorio/DAW/2º%20DAW/Desarrollo_Web_Entorno_Servidor/Proyecto_2_Evaluacion/FormacionEmpresa2026/src/java/modelo/util/CSVImporter.java</file>
+            <file>file:/C:/Users/SGame/OneDrive/Escritorio/DAW/2º%20DAW/Desarrollo_Web_Entorno_Servidor/Proyecto_2_Evaluacion/FormacionEmpresa2026/src/java/controladores/comun/GestionEmpresas.java</file>
+            <file>file:/C:/Users/SGame/OneDrive/Escritorio/DAW/2º%20DAW/Desarrollo_Web_Entorno_Servidor/Proyecto_2_Evaluacion/FormacionEmpresa2026/web/comun/verAlumnos.jsp</file>
         </group>
     </open-files>
 </project-private>
