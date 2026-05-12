@@ -35,13 +35,13 @@ import modelo.util.CSVImporter;
 @MultipartConfig(maxFileSize = 1024 * 1024 * 5) // Máximo 5MB por fichero
 public class GestionAlumnos extends HttpServlet {
 
-    private static final String VISTA_LISTA   = "/comun/verAlumnos.jsp";
-    private static final String VISTA_EDITAR  = "/comun/editarAlumno.jsp";
-    private static final String URL_LISTA     = "/comun/GestionAlumnos?accion=listar";
+    private static final String VISTA_LISTA = "/comun/verAlumnos.jsp";
+    private static final String VISTA_EDITAR = "/comun/editarAlumno.jsp";
+    private static final String URL_LISTA = "/comun/GestionAlumnos?accion=listar";
 
     private final DaoAlumno daoAlumno = new DaoAlumno();
-    private final DaoCurso  daoCurso  = new DaoCurso();
-    
+    private final DaoCurso daoCurso = new DaoCurso();
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -54,7 +54,7 @@ public class GestionAlumnos extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         // Recogemos la acción solicitada (por defecto "listar")
         String accion = request.getParameter("accion");
         if (accion == null) {
@@ -110,9 +110,9 @@ public class GestionAlumnos extends HttpServlet {
 
     // ---- Acciones privadas ----
     /**
-     * Lista los alumnos filtrados por curso si se especifica,
-     * o todos los alumnos si no hay filtro.
-     * Carga todos los alumnos y los envia a la vista de lista
+     * Lista los alumnos filtrados por curso si se especifica, o todos los
+     * alumnos si no hay filtro. Carga todos los alumnos y los envia a la vista
+     * de lista
      */
     private void listar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -141,7 +141,7 @@ public class GestionAlumnos extends HttpServlet {
 
         request.getRequestDispatcher(VISTA_LISTA).forward(request, response);
     }
-    
+
     /**
      * Muestra el formulario vacío para crear un alumno nuevo
      */
@@ -152,7 +152,7 @@ public class GestionAlumnos extends HttpServlet {
         request.setAttribute("accion", "nuevo");
         request.getRequestDispatcher(VISTA_EDITAR).forward(request, response);
     }
-    
+
     /**
      * Carga un alumno existente y muestra el formulario con sus datos.
      */
@@ -175,10 +175,10 @@ public class GestionAlumnos extends HttpServlet {
             response.sendRedirect(request.getContextPath() + URL_LISTA);
         }
     }
-    
+
     /**
-     * Elimina un alumno por su ID.
-     * Fallará si el alumno tiene una práctica asociada.
+     * Elimina un alumno por su ID. Fallará si el alumno tiene una práctica
+     * asociada.
      */
     private void eliminar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -192,31 +192,31 @@ public class GestionAlumnos extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
             request.setAttribute("error",
-                "No se puede eliminar el alumno porque tiene una práctica asociada.");
+                    "No se puede eliminar el alumno porque tiene una práctica asociada.");
         }
         listar(request, response);
     }
-    
+
     /**
      * Procesa el formulario de crear o editar alumno.
      */
     private void guardar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String nombre       = request.getParameter("nombre").trim();
-        String apellidos    = request.getParameter("apellidos").trim();
-        String email        = request.getParameter("email").trim();
-        String fechaStr     = request.getParameter("fechaNacimiento");
+        String nombre = request.getParameter("nombre").trim();
+        String apellidos = request.getParameter("apellidos").trim();
+        String email = request.getParameter("email").trim();
+        String fechaStr = request.getParameter("fechaNacimiento");
         String cursoIdParam = request.getParameter("cursoId");
-        String idParam      = request.getParameter("id");
+        String idParam = request.getParameter("id");
 
         // Validación básica de campos obligatorios
         if (nombre.isEmpty() || apellidos.isEmpty() || email.isEmpty()
                 || fechaStr.isEmpty() || cursoIdParam.isEmpty()) {
             request.setAttribute("error", "Todos los campos son obligatorios.");
             request.setAttribute("cursos", daoCurso.findAll());
-            request.setAttribute("accion", 
-                idParam == null || idParam.isEmpty() ? "nuevo" : "editar");
+            request.setAttribute("accion",
+                    idParam == null || idParam.isEmpty() ? "nuevo" : "editar");
             request.getRequestDispatcher(VISTA_EDITAR).forward(request, response);
             return;
         }
@@ -230,7 +230,7 @@ public class GestionAlumnos extends HttpServlet {
             request.setAttribute("error", "Formato de fecha incorrecto.");
             request.setAttribute("cursos", daoCurso.findAll());
             request.setAttribute("accion",
-                idParam == null || idParam.isEmpty() ? "nuevo" : "editar");
+                    idParam == null || idParam.isEmpty() ? "nuevo" : "editar");
             request.getRequestDispatcher(VISTA_EDITAR).forward(request, response);
             return;
         }
@@ -267,7 +267,7 @@ public class GestionAlumnos extends HttpServlet {
             request.setAttribute("error", "Ya existe un alumno con ese email.");
             request.setAttribute("cursos", daoCurso.findAll());
             request.setAttribute("accion",
-                idParam == null || idParam.isEmpty() ? "nuevo" : "editar");
+                    idParam == null || idParam.isEmpty() ? "nuevo" : "editar");
             request.getRequestDispatcher(VISTA_EDITAR).forward(request, response);
             return;
         } catch (NonExistentEntityException e) {
@@ -280,12 +280,11 @@ public class GestionAlumnos extends HttpServlet {
 
         listar(request, response);
     }
-    
+
     /**
-     * Importa alumnos masivamente desde un fichero CSV.
-     * El CSV debe tener el formato:
-     * nombre,apellidos,email,fecha_nacimiento (yyyy-MM-dd)
-     * La primera línea puede ser una cabecera (se detecta automáticamente).
+     * Importa alumnos masivamente desde un fichero CSV. El CSV debe tener el
+     * formato: nombre,apellidos,email,fecha_nacimiento (yyyy-MM-dd) La primera
+     * línea puede ser una cabecera (se detecta automáticamente).
      */
     private void importarCSV(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -316,13 +315,13 @@ public class GestionAlumnos extends HttpServlet {
 
         // Pasamos el stream del fichero a nuestra clase utilitaria CSVImporter
         try (InputStream inputStream = fichero.getInputStream()) {
-            CSVImporter.ResultadoImportacion resultado =
-                CSVImporter.importarAlumnos(inputStream, curso, daoAlumno);
+            CSVImporter.ResultadoImportacion resultado
+                    = CSVImporter.importarAlumnos(inputStream, curso, daoAlumno);
 
             // Mostramos el resumen de la importación
             request.setAttribute("exito",
-                "Importación completada: " + resultado.getImportados() +
-                " alumnos importados, " + resultado.getErrores() + " errores.");
+                    "Importación completada: " + resultado.getImportados()
+                    + " alumnos importados, " + resultado.getErrores() + " errores.");
 
             // Si hubo errores los mostramos en detalle
             if (!resultado.getMensajesError().isEmpty()) {
@@ -331,7 +330,7 @@ public class GestionAlumnos extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
             request.setAttribute("error", "Error al procesar el fichero CSV: "
-                + e.getMessage());
+                    + e.getMessage());
         }
 
         listar(request, response);

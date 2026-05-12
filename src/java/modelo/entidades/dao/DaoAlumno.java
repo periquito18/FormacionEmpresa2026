@@ -38,7 +38,19 @@ public class DaoAlumno {
         EntityManager em = JPAUtil.getEntityManager();
         try {
             em.getTransaction().begin();
+            // 1. Persistir el alumno
             em.persist(alumno);
+            // 2. Sincronizamos el lado inverso de la relacion (el Curso)
+            if (alumno.getCurso() != null) {
+                // Obtenemos la instancia gestionada del curso
+                Curso curso = em.find(Curso.class, alumno.getCurso().getId());
+                if (curso != null) {
+                    // Añadimos el alumno a la lista del curso en memoria
+                    curso.getAlumnos().add(alumno);
+                    // No hace falta em.merge(curso) si el curso ya está gestionado por el em
+                }
+            }
+            // 3. Realizar el commit
             em.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace(); // Muestra el error completo en la consola
@@ -169,13 +181,25 @@ public class DaoAlumno {
         EntityManager em = JPAUtil.getEntityManager();
         try {
             em.getTransaction().begin();
+            // 1. Buscamos el alumno
             Alumno alumno = em.find(Alumno.class, id);
             if (alumno == null) {
                 throw new NonExistentEntityException(
                         "No existe ningún alumno con id: " + id
                 );
             }
+            // 2. Sincronizamos el lado inverso (eliminar el alumno de la lista del curso)
+            Curso curso = alumno.getCurso();
+            if (curso != null) {
+                // Obtenemos el curso dentro del mismo contexto de persistencia
+                curso = em.find(Curso.class, curso.getId());
+                if (curso != null) {
+                    curso.getAlumnos().remove(alumno);
+                }
+            }
+            // 3. Eliminar "fisicamente" el alumno
             em.remove(alumno);
+            // 4. Realizamos el commit
             em.getTransaction().commit();
         } catch (NonExistentEntityException e) {
             e.printStackTrace(); // Muestra el error completo en la consola

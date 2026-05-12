@@ -43,7 +43,7 @@ public class Curso implements Serializable{
 
     // @NotNull(message = "La lista de alumnos no puede ser nula")
     @OneToMany(mappedBy = "curso", fetch = FetchType.LAZY)
-    private List<Alumno> alumnos;
+    private List<Alumno> alumnos = new java.util.ArrayList<>(); // Inicializamos para evitar NullPointerException
     
     // ---- Constructores ----
 

@@ -104,7 +104,6 @@
                     </table>
                 </div>
             </div>
-
             <%-- Botón para volver a Inicio --%>
             <div class="d-flex justify-content-start align-items-center mt-4">
                 <a href="${pageContext.request.contextPath}/Inicio"

@@ -28,7 +28,7 @@ import modelo.entidades.TipoProfesor;
  * @author SGame
  */
 @WebFilter(filterName = "FiltroDirectiva",
-    urlPatterns = {"/Directiva/*"},
+    urlPatterns = {"/directiva/*"},
     dispatcherTypes = {DispatcherType.REQUEST, DispatcherType.FORWARD,
                        DispatcherType.ERROR, DispatcherType.INCLUDE})
 public class FiltroDirectiva implements Filter {

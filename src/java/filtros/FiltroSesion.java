@@ -24,7 +24,7 @@ import java.io.IOException;
  * @author SGame
  */
 @WebFilter(filterName = "FiltroSesion",
-    urlPatterns = {"/Inicio", "/Directiva/*", "/Comun/*", "/CerrarSesion"},
+    urlPatterns = {"/Inicio", "/directiva/*", "/comun/*", "/CerrarSesion"},
     dispatcherTypes = {DispatcherType.REQUEST, DispatcherType.FORWARD, 
         DispatcherType.ERROR, DispatcherType.INCLUDE})
 public class FiltroSesion implements Filter {

@@ -23,10 +23,9 @@ import modelo.util.JPAUtil;
 public class DaoPractica {
 
     // ---- CREATE ----
-
     /**
-     * Inserta una nueva práctica en la BD.
-     * Verifica que el alumno no tenga ya una práctica activa.
+     * Inserta una nueva práctica en la BD. Verifica que el alumno no tenga ya
+     * una práctica activa.
      *
      * @param practica La práctica a insertar
      * @throws PreexistingEntityException Si el alumno ya tiene una práctica
@@ -35,14 +34,26 @@ public class DaoPractica {
         // Un alumno solo puede tener una práctica activa
         if (findByAlumno(practica.getAlumno()) != null) {
             throw new PreexistingEntityException(
-                "El alumno " + practica.getAlumno().getNombreCompleto() +
-                " ya tiene una práctica asignada."
+                    "El alumno " + practica.getAlumno().getNombreCompleto()
+                    + " ya tiene una práctica asignada."
             );
         }
         EntityManager em = JPAUtil.getEntityManager();
         try {
             em.getTransaction().begin();
+            // 1. Persistir la Practica
             em.persist(practica);
+            // 2. Sincronizar Alumno
+            Alumno alumno = em.find(Alumno.class, practica.getAlumno().getId());
+            if (alumno != null) {
+                alumno.setPractica(practica);
+            }
+            // 3. Sincronizar Empresa
+            Empresa empresa = em.find(Empresa.class, practica.getEmpresa().getId());
+            if (empresa != null) {
+                empresa.getPracticas().add(practica);
+            }
+            // 4. Realizar commit
             em.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace(); // Muestra el error completo en la consola
@@ -54,7 +65,6 @@ public class DaoPractica {
     }
 
     // ---- READ ----
-
     /**
      * Busca una práctica por su ID.
      *
@@ -71,8 +81,8 @@ public class DaoPractica {
     }
 
     /**
-     * Busca la práctica de un alumno concreto.
-     * Como un alumno solo puede tener una práctica, devuelve un único objeto.
+     * Busca la práctica de un alumno concreto. Como un alumno solo puede tener
+     * una práctica, devuelve un único objeto.
      *
      * @param alumno El alumno cuya práctica queremos obtener
      * @return La práctica del alumno, o null si no tiene ninguna
@@ -81,8 +91,8 @@ public class DaoPractica {
         EntityManager em = JPAUtil.getEntityManager();
         try {
             TypedQuery<Practica> query = em.createQuery(
-                "SELECT p FROM Practica p WHERE p.alumno = :alumno",
-                Practica.class
+                    "SELECT p FROM Practica p WHERE p.alumno = :alumno",
+                    Practica.class
             );
             query.setParameter("alumno", alumno);
             return query.getSingleResult();
@@ -95,8 +105,8 @@ public class DaoPractica {
     }
 
     /**
-     * Devuelve todas las prácticas de una empresa concreta.
-     * Útil para las estadísticas de alumnos por empresa.
+     * Devuelve todas las prácticas de una empresa concreta. Útil para las
+     * estadísticas de alumnos por empresa.
      *
      * @param empresa La empresa cuyas prácticas queremos obtener
      * @return Lista de prácticas de esa empresa
@@ -105,8 +115,8 @@ public class DaoPractica {
         EntityManager em = JPAUtil.getEntityManager();
         try {
             TypedQuery<Practica> query = em.createQuery(
-                "SELECT p FROM Practica p WHERE p.empresa = :empresa",
-                Practica.class
+                    "SELECT p FROM Practica p WHERE p.empresa = :empresa",
+                    Practica.class
             );
             query.setParameter("empresa", empresa);
             return query.getResultList();
@@ -124,8 +134,8 @@ public class DaoPractica {
         EntityManager em = JPAUtil.getEntityManager();
         try {
             TypedQuery<Practica> query = em.createQuery(
-                "SELECT p FROM Practica p ORDER BY p.fechaInicio DESC",
-                Practica.class
+                    "SELECT p FROM Practica p ORDER BY p.fechaInicio DESC",
+                    Practica.class
             );
             return query.getResultList();
         } finally {
@@ -134,11 +144,9 @@ public class DaoPractica {
     }
 
     /**
-     * Cuenta el número de alumnos en prácticas por empresa.
-     * Devuelve una lista de arrays Object[] donde:
-     * - [0] es el nombre de la empresa (String)
-     * - [1] es el número de prácticas (Long)
-     * Usado para las estadísticas y gráficas.
+     * Cuenta el número de alumnos en prácticas por empresa. Devuelve una lista
+     * de arrays Object[] donde: - [0] es el nombre de la empresa (String) - [1]
+     * es el número de prácticas (Long) Usado para las estadísticas y gráficas.
      *
      * @return Lista de pares [nombreEmpresa, cantidadAlumnos]
      */
@@ -146,9 +154,9 @@ public class DaoPractica {
         EntityManager em = JPAUtil.getEntityManager();
         try {
             TypedQuery<Object[]> query = em.createQuery(
-                "SELECT p.empresa.nombre, COUNT(p) FROM Practica p " +
-                "GROUP BY p.empresa.nombre ORDER BY COUNT(p) DESC",
-                Object[].class
+                    "SELECT p.empresa.nombre, COUNT(p) FROM Practica p "
+                    + "GROUP BY p.empresa.nombre ORDER BY COUNT(p) DESC",
+                    Object[].class
             );
             return query.getResultList();
         } finally {
@@ -157,11 +165,9 @@ public class DaoPractica {
     }
 
     /**
-     * Cuenta el número de alumnos en prácticas por curso.
-     * Devuelve una lista de arrays Object[] donde:
-     * - [0] es el nombre del curso (String)
-     * - [1] es el número de prácticas (Long)
-     * Usado para las estadísticas y gráficas.
+     * Cuenta el número de alumnos en prácticas por curso. Devuelve una lista de
+     * arrays Object[] donde: - [0] es el nombre del curso (String) - [1] es el
+     * número de prácticas (Long) Usado para las estadísticas y gráficas.
      *
      * @return Lista de pares [nombreCurso, cantidadAlumnos]
      */
@@ -169,9 +175,9 @@ public class DaoPractica {
         EntityManager em = JPAUtil.getEntityManager();
         try {
             TypedQuery<Object[]> query = em.createQuery(
-                "SELECT p.alumno.curso.nombre, COUNT(p) FROM Practica p " +
-                "GROUP BY p.alumno.curso.nombre ORDER BY p.alumno.curso.nombre",
-                Object[].class
+                    "SELECT p.alumno.curso.nombre, COUNT(p) FROM Practica p "
+                    + "GROUP BY p.alumno.curso.nombre ORDER BY p.alumno.curso.nombre",
+                    Object[].class
             );
             return query.getResultList();
         } finally {
@@ -180,10 +186,9 @@ public class DaoPractica {
     }
 
     // ---- UPDATE ----
-
     /**
-     * Actualiza los datos de una práctica existente.
-     * Principalmente usado para añadir o editar comentarios.
+     * Actualiza los datos de una práctica existente. Principalmente usado para
+     * añadir o editar comentarios.
      *
      * @param practica La práctica con los datos actualizados
      * @throws NonExistentEntityException Si la práctica no existe en la BD
@@ -191,7 +196,7 @@ public class DaoPractica {
     public void edit(Practica practica) throws NonExistentEntityException {
         if (findById(practica.getId()) == null) {
             throw new NonExistentEntityException(
-                "No existe ninguna práctica con id: " + practica.getId()
+                    "No existe ninguna práctica con id: " + practica.getId()
             );
         }
         EntityManager em = JPAUtil.getEntityManager();
@@ -209,7 +214,6 @@ public class DaoPractica {
     }
 
     // ---- DELETE ----
-
     /**
      * Elimina una práctica de la BD por su ID.
      *
@@ -223,10 +227,25 @@ public class DaoPractica {
             Practica practica = em.find(Practica.class, id);
             if (practica == null) {
                 throw new NonExistentEntityException(
-                    "No existe ninguna práctica con id: " + id
+                        "No existe ninguna práctica con id: " + id
                 );
             }
+            // 1. Limpiar referencia en el Alumno
+            Alumno alumno = practica.getAlumno();
+            if (alumno != null) {
+                alumno = em.find(Alumno.class, alumno.getId());
+                alumno.setPractica(null);
+            }
+
+            // 2. Limpiar referencia en la Empresa
+            Empresa empresa = practica.getEmpresa();
+            if (empresa != null) {
+                empresa = em.find(Empresa.class, empresa.getId());
+                empresa.getPracticas().remove(practica);
+            }
+            // 3. Borrado "fisico"
             em.remove(practica);
+            // 4. Realizar commit
             em.getTransaction().commit();
         } catch (NonExistentEntityException e) {
             e.printStackTrace(); // Muestra el error completo en la consola
@@ -242,7 +261,6 @@ public class DaoPractica {
     }
 
     // ---- UTILIDADES ----
-
     /**
      * Cuenta el número total de prácticas en la BD.
      *
@@ -252,8 +270,8 @@ public class DaoPractica {
         EntityManager em = JPAUtil.getEntityManager();
         try {
             TypedQuery<Long> query = em.createQuery(
-                "SELECT COUNT(p) FROM Practica p",
-                Long.class
+                    "SELECT COUNT(p) FROM Practica p",
+                    Long.class
             );
             return query.getSingleResult().intValue();
         } finally {

@@ -6,7 +6,6 @@
 package controladores.comun;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -15,7 +14,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import modelo.entidades.Empresa;
 import modelo.entidades.dao.DaoEmpresa;
 import modelo.entidades.dao.exceptions.NonExistentEntityException;
-import modelo.entidades.dao.exceptions.PreexistingEntityException;
 
 /**
  *

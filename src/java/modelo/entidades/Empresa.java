@@ -16,6 +16,7 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -53,11 +54,11 @@ public class Empresa implements Serializable{
     @NotBlank(message = "El email del tutor es obligatorio")
     @Email(message = "El formato del email del tutor no es válido")
     @Size(max = 150)
-    @Column(name = "tutor_email", nullable = false, length = 150)
+    @Column(name = "tutor_email", nullable = false, unique = true, length = 150)
     private String tutorEmail;
 
     @OneToMany(mappedBy = "empresa", fetch = FetchType.LAZY)
-    private List<Practica> practicas;
+    private List<Practica> practicas = new ArrayList<>();
     
     // ---- Constructores ----
 
