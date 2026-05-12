@@ -24,7 +24,7 @@ public class Email {
     private static final String SMTP_HOST = "smtp.gmail.com";
     private static final String SMTP_PORT = "587";
     private static final String EMAIL_REMITE = "mate.palacios.sergio@iescamas.es";
-    private static final String EMAIL_PASSWORD = "sodb tzzm szpk jhhu"; // Contraseña de aplicación (Formacion Empresa 2026)
+    private static final String EMAIL_PASSWORD = "xxxx xxxx xxxx xxxx"; // Contraseña de aplicación (Formacion Empresa 2026)
 
     /**
      * Envia un email con el asunto y cuerpo indicados al destinatario
