@@ -12,6 +12,8 @@ import jakarta.mail.Session;
 import jakarta.mail.Transport;
 import jakarta.mail.internet.InternetAddress;
 import jakarta.mail.internet.MimeMessage;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.Properties;
 
 /**
@@ -24,7 +26,22 @@ public class Email {
     private static final String SMTP_HOST = "smtp.gmail.com";
     private static final String SMTP_PORT = "587";
     private static final String EMAIL_REMITE = "mate.palacios.sergio@iescamas.es";
-    private static final String EMAIL_PASSWORD = "xxxx xxxx xxxx xxxx"; // Contraseña de aplicación (Formacion Empresa 2026)
+    // private static final String EMAIL_PASSWORD = "xxxx xxxx xxxx xxxx"; // Contraseña de aplicación (Formacion Empresa 2026)
+
+    // Variable dinamica que se leerá del archivo externo
+    private static String emailPassword;
+
+    // --- BLOQUE ESTATICO (Aqui se lee el archivo externo) ---
+    static {
+        Properties config = new Properties();
+        try (FileInputStream fis = new FileInputStream("config.properties")) {
+            config.load(fis);
+            emailPassword = config.getProperty("smtp.password");
+        } catch (IOException e) {
+            System.err.println("No se pudo cargar el archivo config.properties. El envío de emails fallará.");
+            e.printStackTrace();
+        }
+    }
 
     /**
      * Envia un email con el asunto y cuerpo indicados al destinatario
@@ -50,7 +67,7 @@ public class Email {
         Authenticator auth = new Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(EMAIL_REMITE, EMAIL_PASSWORD);
+                return new PasswordAuthentication(EMAIL_REMITE, emailPassword);
             }
         };
 
