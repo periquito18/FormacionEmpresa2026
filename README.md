@@ -140,6 +140,7 @@ Los JARs deben añadirse manualmente al proyecto (no incluidos en el repositorio
 - `jakarta.servlet.jsp.jstl-3.0.1.jar`
 - `jakarta.servlet.jsp.jstl-api-3.0.0.jar`
 - `jakarta.mail-2.0.1.jar`
+- `jakarta.activation-api.jar`
 - `jakarta.validation-api.jar`
 - Jersey (JAX-RS) — pendiente de añadir
 
@@ -149,10 +150,10 @@ Los JARs deben añadirse manualmente al proyecto (no incluidos en el repositorio
 
 - [x] Arquitectura y estructura del proyecto
 - [x] Base de datos y entidades JPA
-- [ ] Autenticación y gestión de sesiones
+- [x] Autenticación y gestión de sesiones
 - [x] CRUD Profesores y Cursos
 - [x] CRUD Alumnos + importación CSV
-- [ ] Gestión de Prácticas + email
+- [x] Gestión de Prácticas + email
 - [ ] Servicio REST
 - [ ] Estadísticas y gráficas
 - [ ] Internacionalización
