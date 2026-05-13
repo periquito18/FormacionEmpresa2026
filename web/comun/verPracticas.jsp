@@ -46,7 +46,7 @@
                     <table class="table table-hover align-middle mb-0">
                         <thead class="table-dark">
                             <tr>
-                                <th>#</th>
+                                <%-- <th>#</th> --%>
                                 <th>Alumno</th>
                                 <th>Curso</th>
                                 <th>Empresa</th>
@@ -68,7 +68,7 @@
                                 <c:otherwise>
                                     <c:forEach var="practica" items="${practicas}">
                                         <tr>
-                                            <td>${practica.id}</td>
+                                            <%-- <td>${practica.id}</td> --%>
                                             <td>
                                                 <strong>
                                                     ${practica.alumno.nombre} 

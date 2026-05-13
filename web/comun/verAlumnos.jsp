@@ -157,7 +157,7 @@
                             <table class="table table-hover align-middle mb-0">
                                 <thead class="table-dark">
                                     <tr>
-                                        <th>#</th>
+                                        <%-- <th>#</th> --%>
                                         <th>Nombre</th>
                                         <th>Email</th>
                                         <th>Curso</th>
@@ -177,7 +177,7 @@
                                         <c:otherwise>
                                             <c:forEach var="alumno" items="${alumnos}">
                                                 <tr>
-                                                    <td>${alumno.id}</td>
+                                                    <%-- <td>${alumno.id}</td> --%>
                                                     <td>${alumno.nombre} ${alumno.apellidos}</td>
                                                     <td>
                                                         <a href="mailto:${alumno.email}">

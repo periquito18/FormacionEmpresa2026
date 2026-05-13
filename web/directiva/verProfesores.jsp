@@ -47,7 +47,7 @@
             <table class="table table-hover align-middle mb-0">
                 <thead class="table-dark">
                     <tr>
-                        <th>#</th>
+                        <%-- <th>#</th> --%>
                         <th>Nombre</th>
                         <th>Email</th>
                         <th>Tipo</th>
@@ -68,7 +68,7 @@
                             <%-- c:forEach itera la lista de cursos --%>
                             <c:forEach var="profesor" items="${profesores}">
                                 <tr>
-                                    <td>${profesor.id}</td>
+                                    <%-- <td>${profesor.id}</td> --%>
                                     <td>${profesor.nombre} ${profesor.apellidos}</td>
                                     <td>
                                         <a href="mailto:${profesor.email}">${profesor.email}</a>

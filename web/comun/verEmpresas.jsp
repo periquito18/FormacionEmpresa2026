@@ -45,7 +45,7 @@
                     <table class="table table-hover align-middle mb-0">
                         <thead class="table-dark">
                             <tr>
-                                <th>#</th>
+                                <%-- <th>#</th> --%>
                                 <th>Nombre</th>
                                 <th>Tutor</th>
                                 <th>Practicas</th>
@@ -64,7 +64,7 @@
                                 <c:otherwise>
                                     <c:forEach var="empresa" items="${empresas}">
                                         <tr>
-                                            <td>${empresa.id}</td>
+                                            <%-- <td>${empresa.id}</td> --%>
                                             <td>
                                                 <strong>${empresa.nombre}</strong>
                                                 <c:if test="${not empty empresa.descripcion}">

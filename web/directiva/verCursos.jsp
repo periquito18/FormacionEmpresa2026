@@ -47,7 +47,7 @@
             <table class="table table-hover align-middle mb-0">
                 <thead class="table-dark">
                     <tr>
-                        <th>#</th>
+                        <%-- <th>#</th> --%>
                         <th>Nombre</th>
                         <th>Nº Alumnos</th>
                         <th class="text-center">Acciones</th>
@@ -67,7 +67,7 @@
                             <%-- c:forEach itera la lista de cursos --%>
                             <c:forEach var="curso" items="${cursos}">
                                 <tr>
-                                    <td>${curso.id}</td>
+                                    <%-- <td>${curso.id}</td> --%>
                                     <td>${curso.nombre}</td>
                                     <%-- Número de alumnos del curso --%>
                                     <td>
