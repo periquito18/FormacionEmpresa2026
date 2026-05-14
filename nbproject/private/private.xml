@@ -4,27 +4,32 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/SGame/OneDrive/Escritorio/DAW/2º%20DAW/Desarrollo_Web_Entorno_Servidor/Proyecto_2_Evaluacion/FormacionEmpresa2026/src/java/modelo/util/JPAUtil.java</file>
-            <file>file:/C:/Users/SGame/OneDrive/Escritorio/DAW/2º%20DAW/Desarrollo_Web_Entorno_Servidor/Proyecto_2_Evaluacion/FormacionEmpresa2026/src/java/modelo/util/CSVImporter.java</file>
-            <file>file:/C:/Users/SGame/OneDrive/Escritorio/DAW/2º%20DAW/Desarrollo_Web_Entorno_Servidor/Proyecto_2_Evaluacion/FormacionEmpresa2026/src/java/modelo/entidades/Alumno.java</file>
-            <file>file:/C:/Users/SGame/OneDrive/Escritorio/DAW/2º%20DAW/Desarrollo_Web_Entorno_Servidor/Proyecto_2_Evaluacion/FormacionEmpresa2026/web/comun/editarAlumno.jsp</file>
-            <file>file:/C:/Users/SGame/OneDrive/Escritorio/DAW/2º%20DAW/Desarrollo_Web_Entorno_Servidor/Proyecto_2_Evaluacion/FormacionEmpresa2026/src/java/modelo/entidades/dao/DaoCurso.java</file>
-            <file>file:/C:/Users/SGame/OneDrive/Escritorio/DAW/2º%20DAW/Desarrollo_Web_Entorno_Servidor/Proyecto_2_Evaluacion/FormacionEmpresa2026/web/directiva/verCursos.jsp</file>
-            <file>file:/C:/Users/SGame/OneDrive/Escritorio/DAW/2º%20DAW/Desarrollo_Web_Entorno_Servidor/Proyecto_2_Evaluacion/FormacionEmpresa2026/src/java/controladores/directiva/GestionCursos.java</file>
-            <file>file:/C:/Users/SGame/OneDrive/Escritorio/DAW/2º%20DAW/Desarrollo_Web_Entorno_Servidor/Proyecto_2_Evaluacion/FormacionEmpresa2026/src/java/modelo/entidades/Profesor.java</file>
+            <file>file:/C:/Users/SGame/OneDrive/Escritorio/DAW/2º%20DAW/Desarrollo_Web_Entorno_Servidor/Proyecto_2_Evaluacion/FormacionEmpresa2026/src/java/bundle/mensajes.properties</file>
+            <file>file:/C:/Users/SGame/OneDrive/Escritorio/DAW/2º%20DAW/Desarrollo_Web_Entorno_Servidor/Proyecto_2_Evaluacion/FormacionEmpresa2026/crear_bd.sql</file>
             <file>file:/C:/Users/SGame/OneDrive/Escritorio/DAW/2º%20DAW/Desarrollo_Web_Entorno_Servidor/Proyecto_2_Evaluacion/FormacionEmpresa2026/src/java/rest/RestConfig.java</file>
             <file>file:/C:/Users/SGame/OneDrive/Escritorio/DAW/2º%20DAW/Desarrollo_Web_Entorno_Servidor/Proyecto_2_Evaluacion/FormacionEmpresa2026/src/java/rest/AlumnoREST.java</file>
+            <file>file:/C:/Users/SGame/OneDrive/Escritorio/DAW/2º%20DAW/Desarrollo_Web_Entorno_Servidor/Proyecto_2_Evaluacion/FormacionEmpresa2026/src/java/modelo/entidades/dao/DaoAlumno.java</file>
+            <file>file:/C:/Users/SGame/OneDrive/Escritorio/DAW/2º%20DAW/Desarrollo_Web_Entorno_Servidor/Proyecto_2_Evaluacion/FormacionEmpresa2026/web/directiva/verProfesores.jsp</file>
+            <file>file:/C:/Users/SGame/OneDrive/Escritorio/DAW/2º%20DAW/Desarrollo_Web_Entorno_Servidor/Proyecto_2_Evaluacion/FormacionEmpresa2026/src/java/controladores/comun/GestionPracticas.java</file>
+            <file>file:/C:/Users/SGame/OneDrive/Escritorio/DAW/2º%20DAW/Desarrollo_Web_Entorno_Servidor/Proyecto_2_Evaluacion/FormacionEmpresa2026/web/comun/verAlumnos.jsp</file>
+            <file>file:/C:/Users/SGame/OneDrive/Escritorio/DAW/2º%20DAW/Desarrollo_Web_Entorno_Servidor/Proyecto_2_Evaluacion/FormacionEmpresa2026/src/java/modelo/util/CSVImporter.java</file>
+            <file>file:/C:/Users/SGame/OneDrive/Escritorio/DAW/2º%20DAW/Desarrollo_Web_Entorno_Servidor/Proyecto_2_Evaluacion/FormacionEmpresa2026/src/java/modelo/entidades/Alumno.java</file>
+            <file>file:/C:/Users/SGame/OneDrive/Escritorio/DAW/2º%20DAW/Desarrollo_Web_Entorno_Servidor/Proyecto_2_Evaluacion/FormacionEmpresa2026/src/java/modelo/entidades/dao/DaoCurso.java</file>
+            <file>file:/C:/Users/SGame/OneDrive/Escritorio/DAW/2º%20DAW/Desarrollo_Web_Entorno_Servidor/Proyecto_2_Evaluacion/FormacionEmpresa2026/web/directiva/verCursos.jsp</file>
+            <file>file:/C:/Users/SGame/OneDrive/Escritorio/DAW/2º%20DAW/Desarrollo_Web_Entorno_Servidor/Proyecto_2_Evaluacion/FormacionEmpresa2026/web/comun/editarAlumno.jsp</file>
+            <file>file:/C:/Users/SGame/OneDrive/Escritorio/DAW/2º%20DAW/Desarrollo_Web_Entorno_Servidor/Proyecto_2_Evaluacion/FormacionEmpresa2026/src/java/controladores/directiva/GestionCursos.java</file>
+            <file>file:/C:/Users/SGame/OneDrive/Escritorio/DAW/2º%20DAW/Desarrollo_Web_Entorno_Servidor/Proyecto_2_Evaluacion/FormacionEmpresa2026/src/java/modelo/entidades/Profesor.java</file>
             <file>file:/C:/Users/SGame/OneDrive/Escritorio/DAW/2º%20DAW/Desarrollo_Web_Entorno_Servidor/Proyecto_2_Evaluacion/FormacionEmpresa2026/src/java/modelo/util/Email.java</file>
             <file>file:/C:/Users/SGame/OneDrive/Escritorio/DAW/2º%20DAW/Desarrollo_Web_Entorno_Servidor/Proyecto_2_Evaluacion/FormacionEmpresa2026/web/comun/verPracticas.jsp</file>
             <file>file:/C:/Users/SGame/OneDrive/Escritorio/DAW/2º%20DAW/Desarrollo_Web_Entorno_Servidor/Proyecto_2_Evaluacion/FormacionEmpresa2026/web/comun/verEmpresas.jsp</file>
             <file>file:/C:/Users/SGame/OneDrive/Escritorio/DAW/2º%20DAW/Desarrollo_Web_Entorno_Servidor/Proyecto_2_Evaluacion/FormacionEmpresa2026/src/java/controladores/comun/GestionAlumnos.java</file>
-            <file>file:/C:/Users/SGame/OneDrive/Escritorio/DAW/2º%20DAW/Desarrollo_Web_Entorno_Servidor/Proyecto_2_Evaluacion/FormacionEmpresa2026/src/java/modelo/entidades/dao/DaoAlumno.java</file>
             <file>file:/C:/Users/SGame/OneDrive/Escritorio/DAW/2º%20DAW/Desarrollo_Web_Entorno_Servidor/Proyecto_2_Evaluacion/FormacionEmpresa2026/src/java/modelo/entidades/dao/DaoPractica.java</file>
             <file>file:/C:/Users/SGame/OneDrive/Escritorio/DAW/2º%20DAW/Desarrollo_Web_Entorno_Servidor/Proyecto_2_Evaluacion/FormacionEmpresa2026/src/java/rest/dto/AlumnoDTO.java</file>
-            <file>file:/C:/Users/SGame/OneDrive/Escritorio/DAW/2º%20DAW/Desarrollo_Web_Entorno_Servidor/Proyecto_2_Evaluacion/FormacionEmpresa2026/web/directiva/verProfesores.jsp</file>
-            <file>file:/C:/Users/SGame/OneDrive/Escritorio/DAW/2º%20DAW/Desarrollo_Web_Entorno_Servidor/Proyecto_2_Evaluacion/FormacionEmpresa2026/src/java/controladores/comun/GestionPracticas.java</file>
+            <file>file:/C:/Users/SGame/OneDrive/Escritorio/DAW/2º%20DAW/Desarrollo_Web_Entorno_Servidor/Proyecto_2_Evaluacion/FormacionEmpresa2026/src/java/bundle/mensajes_es.properties</file>
             <file>file:/C:/Users/SGame/OneDrive/Escritorio/DAW/2º%20DAW/Desarrollo_Web_Entorno_Servidor/Proyecto_2_Evaluacion/FormacionEmpresa2026/src/java/controladores/comun/GestionEmpresas.java</file>
-            <file>file:/C:/Users/SGame/OneDrive/Escritorio/DAW/2º%20DAW/Desarrollo_Web_Entorno_Servidor/Proyecto_2_Evaluacion/FormacionEmpresa2026/web/comun/verAlumnos.jsp</file>
+            <file>file:/C:/Users/SGame/OneDrive/Escritorio/DAW/2º%20DAW/Desarrollo_Web_Entorno_Servidor/Proyecto_2_Evaluacion/FormacionEmpresa2026/src/java/bundle/mensajes_en.properties</file>
             <file>file:/C:/Users/SGame/OneDrive/Escritorio/DAW/2º%20DAW/Desarrollo_Web_Entorno_Servidor/Proyecto_2_Evaluacion/FormacionEmpresa2026/src/java/modelo/entidades/Curso.java</file>
+            <file>file:/C:/Users/SGame/OneDrive/Escritorio/DAW/2º%20DAW/Desarrollo_Web_Entorno_Servidor/Proyecto_2_Evaluacion/FormacionEmpresa2026/src/java/controladores/CambiarIdioma.java</file>
             <file>file:/C:/Users/SGame/OneDrive/Escritorio/DAW/2º%20DAW/Desarrollo_Web_Entorno_Servidor/Proyecto_2_Evaluacion/FormacionEmpresa2026/src/java/modelo/util/AppListener.java</file>
         </group>
     </open-files>

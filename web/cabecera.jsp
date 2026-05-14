@@ -88,6 +88,34 @@
                         </c:if>
                     </span>
                 </li>
+
+                <%-- Selector de idioma --%>
+                <li class="nav-item dropdown me-2">
+                    <a class="nav-link dropdown-toggle text-white" href="#"
+                       data-bs-toggle="dropdown">
+                        <i class="bi bi-translate"></i>
+                        <%-- Mostramos el idioma actual --%>
+                        <c:choose>
+                            <c:when test="${sessionScope.locale.language == 'en'}">EN</c:when>
+                            <c:otherwise>ES</c:otherwise>
+                        </c:choose>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li>
+                            <a class="dropdown-item"
+                               href="${pageContext.request.contextPath}/cambiarIdioma?idioma=es">
+                                🇪🇸 Español
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item"
+                               href="${pageContext.request.contextPath}/cambiarIdioma?idioma=en">
+                                🇬🇧 English
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
                 <li class="nav-item">
                     <a class="nav-link btn btn-outline-light btn-sm" 
                        href="${pageContext.request.contextPath}/CerrarSesion">

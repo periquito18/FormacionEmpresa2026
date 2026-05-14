@@ -12,7 +12,21 @@
     <head>
         <meta charset="UTF-8"> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Gestión de Alumnos</title>
+
+        <%--
+        fmt:setLocale establece el idioma para este JSP.
+        Recoge el locale de la sesión, o español por defecto si no hay ninguno.
+        fmt:setBundle carga el fichero de mensajes correspondiente al locale.
+        basename apunta al paquete y nombre base de los ficheros .properties
+        --%>
+
+        <fmt:setLocale value="${not empty sessionScope.locale 
+                                ? sessionScope.locale : 'es'}"/>
+        <fmt:setBundle basename="bundle.mensajes" var="msg"/>
+
+        <title>
+            <fmt:message key="alumnosTitulo" bundle="${msg}"/>
+        </title>
     </head>
     <body>
 
@@ -20,10 +34,13 @@
 
         <div class="container">
             <div class="d-flex justify-content-between align-items-center mb-4">
-                <h2><i class="bi bi-people"></i> Gestión de Alumnos</h2>
+                <h2><i class="bi bi-people"></i>
+                    <fmt:message key="alumnosTitulo" bundle="${msg}"/>
+                </h2>
                 <a href="${pageContext.request.contextPath}/comun/GestionAlumnos?accion=nuevo"
                    class="btn btn-primary">
-                    <i class="bi bi-plus-circle"></i> Nuevo Alumno
+                    <i class="bi bi-plus-circle"></i>
+                    <fmt:message key="nuevoAlumno" bundle="${msg}"/>
                 </a>
             </div>
 
@@ -45,7 +62,7 @@
             <c:if test="${not empty erroresCSV}">
                 <div class="alert alert-warning alert-dismissible fade show">
                     <strong><i class="bi bi-exclamation-triangle"></i> 
-                        Errores durante la importación:
+                        <fmt:message key="alumnosErrorImportacion" bundle="${msg}"/>
                     </strong>
                     <ul class="mb-0 mt-2">
                         <c:forEach var="err" items="${erroresCSV}">
@@ -64,7 +81,8 @@
                     <%-- Filtro por curso --%>
                     <div class="card shadow mb-3">
                         <div class="card-header bg-secondary text-white">
-                            <i class="bi bi-funnel"></i> Filtrar por curso
+                            <i class="bi bi-funnel"></i> 
+                            <fmt:message key="alumnosFiltro" bundle="${msg}"/>
                         </div>
                         <div class="card-body">
                             <div class="list-group list-group-flush">
@@ -72,7 +90,7 @@
                                 <a href="${pageContext.request.contextPath}/comun/GestionAlumnos?accion=listar"
                                    class="list-group-item list-group-item-action
                                    ${empty cursoSeleccionado ? 'active' : ''}">
-                                    Todos los alumnos
+                                    <fmt:message key="alumnosLista" bundle="${msg}"/>
                                 </a>
                                 <%-- Un enlace por cada curso --%>
                                 <c:forEach var="curso" items="${cursos}">
@@ -92,7 +110,8 @@
                     <%-- Importación CSV --%>
                     <div class="card shadow">
                         <div class="card-header bg-success text-white">
-                            <i class="bi bi-upload"></i> Importar CSV
+                            <i class="bi bi-upload"></i> 
+                            <fmt:message key="alumnosTituloCSV" bundle="${msg}"/>
                         </div>
                         <div class="card-body">
                             <%--
@@ -107,9 +126,13 @@
                                 <input type="hidden" name="accion" value="importar">
 
                                 <div class="mb-2">
-                                    <label class="form-label small">Curso destino</label>
+                                    <label class="form-label small">
+                                        <fmt:message key="alumnosCursoCSV" bundle="${msg}"/>
+                                    </label>
                                     <select class="form-select form-select-sm" name="cursoId" required>
-                                        <option value="">Selecciona curso...</option>
+                                        <option value="">
+                                            <fmt:message key="alumnosSeleccionarCursoCSV" bundle="${msg}"/>
+                                        </option>
                                         <c:forEach var="curso" items="${cursos}">
                                             <option value="${curso.id}">${curso.nombre}</option>
                                         </c:forEach>
@@ -117,19 +140,22 @@
                                 </div>
 
                                 <div class="mb-2">
-                                    <label class="form-label small">Fichero CSV</label>
+                                    <label class="form-label small">
+                                        <fmt:message key="alumnosFicheroCSV" bundle="${msg}"/>
+                                    </label>
                                     <input type="file" class="form-control form-control-sm"
                                            name="ficheroCSV" accept=".csv" required>
                                 </div>
 
                                 <div class="mb-2">
                                     <small class="text-muted">
-                                        Formato: nombre, apellidos, email, fecha (yyyy-MM-dd)
+                                        <fmt:message key="alumnosFormatoCSV" bundle="${msg}"/>
                                     </small>
                                 </div>
 
                                 <button type="submit" class="btn btn-success btn-sm w-100">
-                                    <i class="bi bi-upload"></i> Importar
+                                    <i class="bi bi-upload"></i>
+                                    <fmt:message key="alumnosImportarCSV" bundle="${msg}"/>
                                 </button>
                             </form>
                         </div>
@@ -143,14 +169,14 @@
                         <div class="card-header">
                             <c:choose>
                                 <c:when test="${not empty cursoSeleccionado}">
-                                    Alumnos de <strong>${cursoSeleccionado.nombre}</strong>
+                                    <fmt:message key="alumnosCursosFormulario" bundle="${msg}"/> <strong>${cursoSeleccionado.nombre}</strong>
                                 </c:when>
                                 <c:otherwise>
-                                    Todos los alumnos
+                                    <fmt:message key="alumnosLista" bundle="${msg}"/>
                                 </c:otherwise>
                             </c:choose>
                             <span class="badge bg-primary ms-2">
-                                ${alumnos.size()} alumnos
+                                ${alumnos.size()} <fmt:message key="alumnos" bundle="${msg}"/>
                             </span>
                         </div>
                         <div class="card-body">
@@ -158,11 +184,21 @@
                                 <thead class="table-dark">
                                     <tr>
                                         <%-- <th>#</th> --%>
-                                        <th>Nombre</th>
-                                        <th>Email</th>
-                                        <th>Curso</th>
-                                        <th>Fecha Nacimiento</th>
-                                        <th class="text-center">Acciones</th>
+                                        <th>
+                                            <fmt:message key="alumnosColumnaNombre" bundle="${msg}"/>
+                                        </th>
+                                        <th>
+                                            <fmt:message key="alumnosColumnaEmail" bundle="${msg}"/>
+                                        </th>
+                                        <th>
+                                            <fmt:message key="alumnosColumnaCurso" bundle="${msg}"/>
+                                        </th>
+                                        <th>
+                                            <fmt:message key="alumnosColumnaFechaNacimiento" bundle="${msg}"/>
+                                        </th>
+                                        <th class="text-center">
+                                            <fmt:message key="alumnosColumnaAcciones" bundle="${msg}"/>
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -170,12 +206,15 @@
                                         <c:when test="${empty alumnos}">
                                             <tr>
                                                 <td colspan="6" class="text-center text-muted p-4">
-                                                    No hay alumnos en este curso
+                                                    <fmt:message key="alumnosSinRegistros" bundle="${msg}"/>
                                                 </td>
                                             </tr>
                                         </c:when>
                                         <c:otherwise>
                                             <c:forEach var="alumno" items="${alumnos}">
+                                                <%-- Guardamos el mensaje traducido en una variable Java --%>
+                                                <fmt:message key="alumnosConfirmacionEliminar" 
+                                                             bundle="${msg}" var="msgConfirmar"/>
                                                 <tr>
                                                     <%-- <td>${alumno.id}</td> --%>
                                                     <td>${alumno.nombre} ${alumno.apellidos}</td>
@@ -191,25 +230,29 @@
                                                     </td>
                                                     <td>
                                                         <%--
-                                                            fmt:formatDate formatea fechas.
-                                                            pattern="dd/MM/yyyy" es el formato
-                                                            europeo que usamos en España.
-                                                            value necesita un objeto Date,
-                                                            pero nosotros tenemos LocalDate,
-                                                            por eso usamos toString() y
-                                                            lo mostramos directamente.
+                                                            fmt:parseDate convierte el String
+                                                            de LocalDate a un objeto Date
+                                                            que fmt:formatDate puede formatear.
+                                                            pattern dd/MM/yyyy es el formato
+                                                            europeo estándar.
                                                         --%>
-                                                        ${alumno.fechaNacimiento}
+                                                        <fmt:parseDate value="${alumno.fechaNacimiento}"
+                                                                       pattern="yyyy-MM-dd"
+                                                                       var="fechaParseada"/>
+                                                        <fmt:formatDate value="${fechaParseada}"
+                                                                        pattern="dd/MM/yyyy"/>
                                                     </td>
                                                     <td class="text-center">
                                                         <a href="${pageContext.request.contextPath}/comun/GestionAlumnos?accion=editar&id=${alumno.id}"
                                                            class="btn btn-sm btn-warning me-1">
-                                                            <i class="bi bi-pencil"></i> Editar
+                                                            <i class="bi bi-pencil"></i>
+                                                            <fmt:message key="editarAlumno" bundle="${msg}"/>
                                                         </a>
                                                         <a href="${pageContext.request.contextPath}/comun/GestionAlumnos?accion=eliminar&id=${alumno.id}"
                                                            class="btn btn-sm btn-danger"
-                                                           onclick="return confirm('¿Seguro que deseas eliminar a ${alumno.nombre} ${alumno.apellidos}?')">
-                                                            <i class="bi bi-trash"></i> Eliminar
+                                                           onclick="return confirm('${msgConfirmar} ${alumno.nombre} ${alumno.apellidos}?')">
+                                                            <i class="bi bi-trash"></i>
+                                                            <fmt:message key="eliminarAlumno" bundle="${msg}"/>
                                                         </a>
                                                     </td>
                                                 </tr>
@@ -226,7 +269,8 @@
             <div class="d-flex justify-content-start align-items-center mt-4">
                 <a href="${pageContext.request.contextPath}/Inicio"
                    class="btn btn-primary">
-                    <i class="bi bi-arrow-left-circle"></i> Regresar
+                    <i class="bi bi-arrow-left-circle"></i>
+                    <fmt:message key="regresar" bundle="${msg}"/>
                 </a>
             </div>
         </div>
