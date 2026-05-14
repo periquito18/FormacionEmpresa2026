@@ -142,7 +142,7 @@ Los JARs deben añadirse manualmente al proyecto (no incluidos en el repositorio
 - `jakarta.mail-2.0.1.jar`
 - `jakarta.activation-api.jar`
 - `jakarta.validation-api.jar`
-- Jersey (JAX-RS) — pendiente de añadir
+- `Jersey (JAX-RS) --> 20 jars`
 
 ---
 
@@ -154,14 +154,14 @@ Los JARs deben añadirse manualmente al proyecto (no incluidos en el repositorio
 - [x] CRUD Profesores y Cursos
 - [x] CRUD Alumnos + importación CSV
 - [x] Gestión de Prácticas + email
-- [ ] Servicio REST
+- [x] Servicio REST
 - [ ] Estadísticas y gráficas
-- [ ] Internacionalización
+- [x] Internacionalización
 
 ---
 
 ## 👨‍💻 Autor
 
-Proyecto académico — Ciclo Formativo DAW  
-Asignatura: Desarrollo Web en Entorno Servidor
+Proyecto académico — Ciclo Formativo DAW    
+Asignatura: Desarrollo Web en Entorno Servidor  
 Autor: Sergio Mate Palacios
