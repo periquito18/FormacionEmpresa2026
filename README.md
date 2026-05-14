@@ -155,7 +155,7 @@ Los JARs deben añadirse manualmente al proyecto (no incluidos en el repositorio
 - [x] CRUD Alumnos + importación CSV
 - [x] Gestión de Prácticas + email
 - [x] Servicio REST
-- [ ] Estadísticas y gráficas
+- [x] Estadísticas y gráficas
 - [x] Internacionalización
 
 ---
